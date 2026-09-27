@@ -1,13 +1,19 @@
 package com.deepblue.rescue.domain;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.GenerationType;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
 @Entity
-@Table(name = "rescueCenter")
+@Table(name = "rescue_centers")
 public class RescueCenter {
 
      @Id
@@ -39,7 +45,7 @@ public class RescueCenter {
      public String getCode() { return code; }
      public String getName() { return name; }
      public String getCity() { return city; }
-     public List<RescueCase> getRescueCases() { return List.copyOf(rescueCases) }
+     public List<RescueCase> getRescueCases() { return List.copyOf(rescueCases); }
 
      public void addCase(RescueCase rescueCase) {
             rescueCases.add(rescueCase);
