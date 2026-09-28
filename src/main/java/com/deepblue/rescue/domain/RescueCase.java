@@ -51,12 +51,12 @@ public class RescueCase {
     protected RescueCase(){
     }
 
-    private RescueCase (String caseCode, LocalDate rescueDate, String rescueLocation, RescueCenter rescueCenter){
+    public RescueCase (String caseCode, LocalDate rescueDate, String rescueLocation, RescueCenter rescueCenter, RescueStatus status){
         this.caseCode = caseCode;
         this.rescueDate = rescueDate;
         this.rescueLocation = rescueLocation;
         this.rescueCenter = rescueCenter;
-        this.status = RescueStatus.ADMITTED;
+        this.status = status;
     }
 
     public Long getId() { return id; }
