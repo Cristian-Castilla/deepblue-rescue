@@ -23,14 +23,14 @@ public class RescueCase {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, unique = true, length = 50)
-    private String case_code;
+    @Column(name = "case_code", nullable = false, unique = true, length = 50)
+    private String caseCode;
 
-    @Column (nullable = false)
-    private LocalDate rescue_date;
+    @Column (name = "rescue_date", nullable = false)
+    private LocalDate rescueDate;
 
-    @Column (nullable = false, length = 200)
-    private String rescue_location;
+    @Column (name = "rescue_location",nullable = false, length = 200)
+    private String rescueLocation;
 
     @Enumerated(EnumType.STRING)
     @Column (nullable = false, length = 30)
@@ -38,7 +38,7 @@ public class RescueCase {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "rescue_center_id", nullable = false)
-    private RescueCenter rescue_center;
+    private RescueCenter rescueCenter;
 
     @OneToOne(
             mappedBy = "rescueCase",
@@ -51,24 +51,24 @@ public class RescueCase {
     protected RescueCase(){
     }
 
-    private RescueCase (String case_code, LocalDate rescue_date, String rescue_location, RescueCenter rescue_center){
-        this.case_code = case_code;
-        this.rescue_date = rescue_date;
-        this.rescue_location = rescue_location;
-        this.rescue_center = rescue_center;
+    private RescueCase (String caseCode, LocalDate rescueDate, String rescueLocation, RescueCenter rescueCenter){
+        this.caseCode = caseCode;
+        this.rescueDate = rescueDate;
+        this.rescueLocation = rescueLocation;
+        this.rescueCenter = rescueCenter;
         this.status = RescueStatus.ADMITTED;
     }
 
     public Long getId() { return id; }
-    public String getCaseCode() { return case_code; }
-    public LocalDate getRescueDate() { return rescue_date; }
-    public String getRescueLocation() { return rescue_location; }
+    public String getCaseCode() { return caseCode; }
+    public LocalDate getRescueDate() { return rescueDate; }
+    public String getRescueLocation() { return rescueLocation; }
     public RescueStatus getStatus() { return status; }
-    public RescueCenter getRescueCenter() { return rescue_center; }
+    public RescueCenter getRescueCenter() { return rescueCenter; }
     public Animal getAnimal() { return animal; }
 
-    public void setRescueCenter(RescueCenter rescue_center) {
-        this.rescue_center = rescue_center;
+    public void setRescueCenter(RescueCenter rescueCenter) {
+        this.rescueCenter = rescueCenter;
     }
 
     public void assignAnimal(Animal animal) {
