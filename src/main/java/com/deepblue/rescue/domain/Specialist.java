@@ -51,9 +51,22 @@ public class Specialist {
         this.email = email;
     }
 
+    public Long getId() { return id; }
+    public String getProfessionalCode() { return professionalCode; }
+    public String getFirstName() { return firstName; }
+    public String getLastName() { return lastName; }
+    public String getEmail() { return email; }
+    public boolean isActive() { return active; }
+    public List<Treatment> getTreatments() { return List.copyOf(treatments); }
+
     public void addExpertise(Expertise expertise){
         this.expertiseAreas.add(expertise);
         expertise.getSpecialists().add(this);
+    }
+
+    public void addTreatment(Treatment treatment){
+        treatments.add(treatment);
+        treatment.setSpecialist(this);
     }
 
     public Set<Expertise> getExpertiseAreas() { return Set.copyOf(expertiseAreas); }

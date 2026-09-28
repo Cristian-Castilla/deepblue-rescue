@@ -60,6 +60,15 @@ public class Animal {
         this.rescueCase = rescueCase;
     }
 
+    public Long getId() { return id; }
+    public String getAnimalCode() { return animalCode; }
+    public String getCommonName() { return commonName; }
+    public String getScientificName() { return scientificName; }
+    public AnimalSex getSex() { return sex; }
+    public RescueCase getRescueCase() { return rescueCase; }
+    public MedicalRecord getMedicalRecord() { return medicalRecord; }
+    public List<Treatment> getTreatments() { return List.copyOf(treatments); }
+
     public void assignMedicalRecord(MedicalRecord medicalRecord) {
         this.medicalRecord = medicalRecord;
         medicalRecord.setAnimal(this);
